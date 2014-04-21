@@ -11,12 +11,12 @@ import com.jfinal.plugin.druid.DruidPlugin;
 
 import core.framework.ContextPathHandler;
 import fun.security.SecurityRoutes;
-import fun.security.controller.LoginController;
+import fun.security.controller.SecurityController;
 
 /**
  * @author cuipeng cuipeng.star@gmail.com
- * @date 2014�?�?1�?
- * @description TODO
+ * @date 2014年4月21日
+ * @description Fun JFinal配置类
  */
 public class KMSConfig extends JFinalConfig {
 
@@ -51,7 +51,8 @@ public class KMSConfig extends JFinalConfig {
 	public void configRoute(Routes me) {
 		// TODO Auto-generated method stub
 //		me.add(new SecurityRoutes());
-		me.add("/security/randomCode", LoginController.class);
+		me.add("/", SecurityController.class);
+		me.add("/security", SecurityController.class);
 	}
 
 }
