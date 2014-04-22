@@ -12,6 +12,13 @@ import com.jfinal.plugin.druid.DruidPlugin;
 import core.framework.ContextPathHandler;
 import fun.security.SecurityRoutes;
 import fun.security.controller.SecurityController;
+import fun.setting.entity.IP;
+import fun.setting.entity.LoginLog;
+import fun.setting.entity.Module;
+import fun.setting.entity.Operate;
+import fun.setting.entity.Pages;
+import fun.setting.entity.Role;
+import fun.setting.entity.User;
 
 /**
  * @author cuipeng cuipeng.star@gmail.com
@@ -45,6 +52,14 @@ public class KMSConfig extends JFinalConfig {
 		me.add(druidPlugin);
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(druidPlugin);
 		me.add(arp);
+		//添加setting模块的数据库与Model映射
+		arp.addMapping("T_S_USER", "S_USER_ID", User.class);
+		arp.addMapping("T_S_ROLE", "S_ROLE_ID", Role.class);
+		arp.addMapping("T_S_Module", "S_MODULE_ID", Module.class);
+		arp.addMapping("T_S_PAGES", "S_PAGE_ID", Pages.class);
+		arp.addMapping("T_S_OPERATE", "S_ACTION_ID", Operate.class);
+		arp.addMapping("T_S_LOGIN_LOG", "S_LOG_ID", LoginLog.class);
+		arp.addMapping("T_S_IP", IP.class);
 	}
 
 	@Override
