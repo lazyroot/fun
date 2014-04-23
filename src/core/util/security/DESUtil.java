@@ -68,10 +68,16 @@ public class DESUtil {
 	 * @throws IOException 
 	 * @date 2014年4月23日
 	 */
-	public static String decrypt(String data) throws IOException {
+	public static String decrypt(String data) {
 		Assert.notNull(data, "Input data must not be null");
 		BASE64Decoder decoder = new BASE64Decoder();
-		byte[] buf = decoder.decodeBuffer(data);
+		byte[] buf = null;
+		try {
+			buf = decoder.decodeBuffer(data);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		byte[] bt = null;
 		try {
 			bt = decrypt(buf, KEY.getBytes());
