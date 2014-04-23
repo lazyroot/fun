@@ -1,5 +1,6 @@
 package core.util.security;
 
+import java.io.IOException;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -7,6 +8,7 @@ import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 
+import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
 /**
@@ -16,7 +18,7 @@ import sun.misc.BASE64Encoder;
  */
 public class DES3Util {
 	
-	private static final String DES = "3DES";
+	private static final String DES = "DES";
 	private static final String KEY = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	
 	/**
@@ -51,9 +53,13 @@ public class DES3Util {
 		byte[] decodeByte = null;
 		String decodeStr = "";
 		Key key = getKey();
-		BASE64Encoder encoder = new BASE64Encoder();
-		decodeByte = getDecCode(data.getBytes(), key);
-		decodeStr = encoder.encode(decodeByte);
+		BASE64Decoder decoder = new BASE64Decoder();
+		try {
+			decodeByte = getDecCode(decoder.decodeBuffer(data), key);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		decodeStr = new String(decodeByte);
 		return decodeStr;
 	}
 	
