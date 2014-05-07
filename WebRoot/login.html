@@ -4,27 +4,26 @@
 <meta charset="utf-8">
 <title>JustFun | 登陆</title>
 <meta name="description" content="">
-
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
-
 <link rel="stylesheet" href="resource/css/bootstrap.css">
 <link rel="stylesheet" href="resource/css/jquery.fancybox.css">
 <link rel="stylesheet" href="resource/css/login.css">
+<link rel="icon" href="resource/img/favicon.ico" />
 </head>
 <body class='login_body'>
 	<div class="wrap">
 		<h2>欢迎使用</h2>
 		<h4>&nbsp;&nbsp;&nbsp;Just For Fun</h4>
-		<form action="dashboard.html"  autocomplete="off" method="post" class="validate">
+		<form action="/fun/security/auth"  autocomplete="off" method="post" class="validate">
 		<div class="alert alert-error">
 			<strong>错误信息!</strong> 请输入用户名和密码
 		</div>
 		<div class="login">
 			<div class="email">
-				<label for="user">用户名</label><div class="email-input"><div class="control-group"><div class="input-prepend"><span class="add-on"><i class="icon-envelope"></i></span><input type="text" id="user" name="user" class="{required:true}"></div></div></div>
+				<label for="username">用户名</label><div class="email-input"><div class="control-group"><div class="input-prepend"><span class="add-on"><i class="icon-envelope"></i></span><input type="text" id="username" name="username" class="{required:true}"></div></div></div>
 			</div>
 			<div class="pw">
-				<label for="pw">密&nbsp;&nbsp;&nbsp;码</label><div class="pw-input"><div class="control-group"><div class="input-prepend"><span class="add-on"><i class="icon-lock"></i></span><input type="password" id="pw" name="pw" class='{required:true}'></div></div></div>
+				<label for="password">密&nbsp;&nbsp;&nbsp;码</label><div class="pw-input"><div class="control-group"><div class="input-prepend"><span class="add-on"><i class="icon-lock"></i></span><input type="password" id="password" name="password" class='{required:true}'></div></div></div>
 			</div>
 			<div class="remember">
 				<label class="checkbox">

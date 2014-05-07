@@ -19,7 +19,16 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
-	<!-- Druid configuration -->
+	<!-- session configuration start -->
+	<listener>
+		<listener-class>core.util.web.SessionCounter</listener-class>
+	</listener>
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+	<!-- session configuration end -->
+	
+	<!-- Druid configuration in KMSConfig.java -->
 	
 	<!-- java melody monitor -->
 	<filter>

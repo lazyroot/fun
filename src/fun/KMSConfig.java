@@ -11,9 +11,9 @@ import com.jfinal.plugin.activerecord.CaseInsensitiveContainerFactory;
 import com.jfinal.plugin.druid.DruidPlugin;
 
 import core.framework.ContextPathHandler;
+import fun.security.controller.MainController;
 import fun.security.controller.SecurityController;
 import fun.setting.SettingRoute;
-import fun.setting.controller.MainController;
 import fun.setting.entity.IP;
 import fun.setting.entity.LoginLog;
 import fun.setting.entity.Module;
@@ -33,7 +33,9 @@ public class KMSConfig extends JFinalConfig {
 	@Override
 	public void configConstant(Constants me) {
 		loadPropertyFile("fun.properties");
-		me.setDevMode(getPropertyToBoolean("devMode", true));
+		me.setEncoding("UTF-8");
+		me.setUrlParaSeparator("::");
+		me.setDevMode(getPropertyToBoolean("devMode", false));
 		me.setError403View("/403.html");
 		me.setError404View("/404.html");
 		me.setError500View("/500.html");
